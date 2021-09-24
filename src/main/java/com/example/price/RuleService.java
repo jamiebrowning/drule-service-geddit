@@ -11,9 +11,9 @@ public class RuleService {
     @Autowired
     KieContainer kContainer;
 
-    Product fireAllRules(Product product) {
+    <T> T fireAllRules(T context) {
         StatelessKieSession session = kContainer.newStatelessKieSession();
-        session.execute(product);
-        return product;
+        session.execute(context);
+        return context;
     }
 }
