@@ -25,11 +25,12 @@ class RuleServiceTest {
 
     @Test
     void getPrice_ReturnsBasePriceWhenNoRule() {
-        Product context = new Product.ProductBuilder().price(10).build();
+        final int expectedPrice = 10;
+        final Product context = new Product.ProductBuilder().price(expectedPrice).build();
 
-        Product actual = ruleService.fireAllRules(context);
+        final Product actual = ruleService.fireAllRules(context);
 
-        assertEquals(context.getPrice(), actual.getPrice());
+        assertEquals(expectedPrice, actual.getPrice());
 
     }
 
