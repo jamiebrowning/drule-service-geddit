@@ -4,12 +4,6 @@
 # Log file
 *.log
 
-# BlueJ files
-*.ctxt
-
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
 # Package Files #
 *.jar
 *.war
@@ -24,6 +18,9 @@ hs_err_pid*
 
 # Maven
 target/
+release.properties
+pom.xml.releaseBackup
+pom.xml.tag
 
 # IntelliJ project files
 *.iml
@@ -36,9 +33,3 @@ target/
 
 # Misc
 *.swp
-release.properties
-pom.xml.releaseBackup
-pom.xml.tag
-
-# Log files
-*.log
