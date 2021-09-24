@@ -1,0 +1,8 @@
+import com.example.price.Product
+
+rule "test price"
+    when
+        product : Product(name=="test")
+    then
+        product.setPrice(20);
+    end
