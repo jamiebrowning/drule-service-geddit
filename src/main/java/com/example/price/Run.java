@@ -13,8 +13,4 @@ public class Run {
 		SpringApplication.run(Run.class, args);
 	}
 
-	@Bean
-	KieContainer kieContainer() {
-		return KieServices.Factory.get().getKieClasspathContainer();
-	}
 }
