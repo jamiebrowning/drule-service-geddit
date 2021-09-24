@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class PriceController {
+public class RuleController {
 
     @Autowired
     PriceService priceService;
