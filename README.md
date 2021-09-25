@@ -1,8 +1,8 @@
 # Rule Service
 > A scratch project for exploring SpringBoot and Drools
 
-A brief description of your project, what it is used for and how does life get
-awesome when someone starts to use it.
+I created this project so that I could explore integration between Spring Boot and Drools. Specifically configuration
+and testing. But also how a generic service could be exposed via a REST interface.
 
 ## Installing / Getting started
 
