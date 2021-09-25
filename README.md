@@ -1,4 +1,4 @@
-# Rule Service
+# D-Rule Service (geddit?)
 > A scratch project for exploring SpringBoot and Drools
 
 I created this project so that I could explore integration between Spring Boot and Drools. Specifically configuration
