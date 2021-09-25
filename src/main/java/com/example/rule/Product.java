@@ -1,4 +1,4 @@
-package com.example.price;
+package com.example.rule;
 
 import lombok.Builder;
 import lombok.Data;

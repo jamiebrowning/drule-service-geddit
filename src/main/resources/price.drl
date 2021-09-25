@@ -1,4 +1,4 @@
-import com.example.price.Product
+import com.example.rule.Product
 
 rule "test price"
     when

@@ -1,4 +1,4 @@
-package com.example.price;
+package com.example.rule;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

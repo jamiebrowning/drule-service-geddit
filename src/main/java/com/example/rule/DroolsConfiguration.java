@@ -1,4 +1,4 @@
-package com.example.price;
+package com.example.rule;
 
 import org.kie.api.KieServices;
 import org.kie.api.runtime.KieContainer;
