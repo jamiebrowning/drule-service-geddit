@@ -20,9 +20,7 @@ class RuleServiceTest {
     void getPrice_ReturnsBasePriceWhenNoRule() {
         final int expectedPrice = 10;
         final Product context = new Product.ProductBuilder().price(expectedPrice).build();
-
         final Product actual = ruleService.fireAllRules(context);
-
         assertEquals(expectedPrice, actual.getPrice());
 
     }
@@ -31,11 +29,8 @@ class RuleServiceTest {
     void getPrice_ReturnsRulePriceWhenRuleMatches() {
         final Product context = new Product.ProductBuilder().name("test").build();
         final int expectedPrice = 20;
-
         final Product actual = ruleService.fireAllRules(context);
-
         assertEquals(expectedPrice, actual.getPrice());
-
     }
 
 }
