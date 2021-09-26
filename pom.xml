@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>price-service</artifactId>
+    <artifactId>sprools-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>price-service</name>
+    <name>sprools-service</name>
     <description>Scratchpad project for Drools exploration</description>
     <properties>
         <java.version>11</java.version>
