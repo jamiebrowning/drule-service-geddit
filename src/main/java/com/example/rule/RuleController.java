@@ -12,7 +12,7 @@ public class RuleController {
     RuleService ruleService;
 
     @PostMapping("/fireAllRules")
-    public Product fireAllRules(@RequestBody Product context) {
-        return ruleService.fireAllRules(context);
+    public <T> RuleData<T> fireAllRules(@RequestBody RuleData<T> ruleData) {
+        return ruleService.fireAllRules(ruleData);
     }
 }

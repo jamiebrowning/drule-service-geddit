@@ -9,7 +9,6 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 
-@ExtendWith(SpringExtension.class)
 @SpringBootTest
 class RuleServiceTest {
 
@@ -17,20 +16,25 @@ class RuleServiceTest {
     private RuleService ruleService;
 
     @Test
-    void getPrice_ReturnsBasePriceWhenNoRule() {
+    void fireAllRules_WhenNameNotTest_ShouldNotChangePrice() {
         final int expectedPrice = 10;
-        final Product context = new Product.ProductBuilder().price(expectedPrice).build();
-        final Product actual = ruleService.fireAllRules(context);
-        assertEquals(expectedPrice, actual.getPrice());
+        final Product product = new Product.ProductBuilder().price(expectedPrice).build();
+        final RuleData<Product> productRuleData = new RuleData<>(product);
 
+        final RuleData<Product> actual = ruleService.fireAllRules(productRuleData);
+
+        assertEquals(expectedPrice, actual.getContext().getPrice());
     }
 
     @Test
-    void getPrice_ReturnsRulePriceWhenRuleMatches() {
-        final Product context = new Product.ProductBuilder().name("test").build();
+    void fireAllRules_WhenNameIsTest_ShouldChangePrice() {
         final int expectedPrice = 20;
-        final Product actual = ruleService.fireAllRules(context);
-        assertEquals(expectedPrice, actual.getPrice());
+        final Product product = new Product.ProductBuilder().name("test").build();
+        final RuleData<Product> productRuleData = new RuleData<>(product);
+
+        final RuleData<Product> actual = ruleService.fireAllRules(productRuleData);
+
+        assertEquals(expectedPrice, actual.getContext().getPrice());
     }
 
 }
