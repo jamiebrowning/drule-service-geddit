@@ -1,20 +1,18 @@
 package com.example.rule.handler;
 
-import org.kie.api.runtime.KieContainer;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.Data;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ConsumerRuleHandler implements RuleHandler {
+@Data
+public class ConsumerRuleHandler extends AbstractRuleHandler {
 
-    // TODO - inject via @Value
-    private static final String K_SESSION_NAME = "consumerRuleKS";
+    @Value("{kie.session.consumer-rules.name}")
+    private String kSessionName;
 
-    @Autowired
-    KieContainer kContainer;
-
-    public <T> T fireAllRules(T context) {
-        kContainer.newStatelessKieSession(K_SESSION_NAME).execute(context);
-        return context;
+    @Override
+    public String getKSessionName() {
+        return kSessionName;
     }
 }
