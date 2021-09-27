@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Data
-public class ConsumerRuleHandler extends AbstractRuleHandler {
+public class ConsumerRuleHandler extends AbstractDroolsRuleHandler {
 
     @Value("${kie.session.consumer-rules.name}")
     private String kSessionName;

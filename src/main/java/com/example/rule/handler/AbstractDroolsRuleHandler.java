@@ -3,7 +3,7 @@ package com.example.rule.handler;
 import org.kie.api.runtime.KieContainer;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public abstract class AbstractRuleHandler implements RuleHandler{
+public abstract class AbstractDroolsRuleHandler implements RuleHandler{
 
     @Autowired
     KieContainer kContainer;

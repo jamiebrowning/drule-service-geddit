@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Data
-public class PriceRuleHandler extends AbstractRuleHandler {
+public class PriceRuleHandler extends AbstractDroolsRuleHandler {
 
     @Value("${kie.session.price-rules.name}")
     private String kSessionName;
