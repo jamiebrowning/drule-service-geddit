@@ -13,4 +13,6 @@ public abstract class AbstractRuleHandler implements RuleHandler{
         kContainer.newStatelessKieSession(getKSessionName()).execute(context);
         return context;
     }
+
+    abstract String getKSessionName();
 }

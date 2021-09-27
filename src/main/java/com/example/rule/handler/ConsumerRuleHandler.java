@@ -8,11 +8,11 @@ import org.springframework.stereotype.Component;
 @Data
 public class ConsumerRuleHandler extends AbstractRuleHandler {
 
-    @Value("{kie.session.consumer-rules.name}")
+    @Value("${kie.session.consumer-rules.name}")
     private String kSessionName;
 
     @Override
-    public String getKSessionName() {
+    String getKSessionName() {
         return kSessionName;
     }
 }

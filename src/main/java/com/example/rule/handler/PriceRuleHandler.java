@@ -8,11 +8,11 @@ import org.springframework.stereotype.Component;
 @Data
 public class PriceRuleHandler extends AbstractRuleHandler {
 
-    @Value("{kie.session.price-rules.name}")
+    @Value("${kie.session.price-rules.name}")
     private String kSessionName;
 
     @Override
-    public String getKSessionName() {
+    String getKSessionName() {
         return kSessionName;
     }
 }
