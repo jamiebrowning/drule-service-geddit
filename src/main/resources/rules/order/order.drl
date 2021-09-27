@@ -1,0 +1,8 @@
+import com.example.rule.Delivery
+
+rule "test delivery"
+    when
+        delivery : Delivery(status=="test")
+    then
+        delivery.setStatus("delivered");
+    end
