@@ -13,7 +13,7 @@ java -jar target sprools-service-${version}.jar
 
 ## Usage
 ```shell
-curl -X POST -H "Content-Type: application/json" -d '{"context":{"@class":"com.example.rule.Product","name":"test","price":10}}' http://localhost:8080/fireAllRules
+curl -X POST -H "Content-Type: application/json" -d '{"context":{"@class":"com.example.rule.domain.external.Product","name":"test","price":10}}' http://localhost:8080/fireAllRules
 ```
 
 ## Credits

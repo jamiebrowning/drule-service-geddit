@@ -1,5 +1,7 @@
-package com.example.rule;
+package com.example.rule.service;
 
+import com.example.rule.strategy.impl.RuleStrategy;
+import com.example.rule.domain.RuleData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -16,7 +18,7 @@ public class RuleService {
      * @param <T> the context
      * @return the modified ruleData
      */
-    <T> RuleData<T> fireAllRules(RuleData<T> ruleData) {
+    public <T> RuleData<T> fireAllRules(RuleData<T> ruleData) {
         if(ruleStrategy.findHandler(ruleData).isPresent()) {
             ruleStrategy.findHandler(ruleData).get().fireAllRules(ruleData.getContext());
         }

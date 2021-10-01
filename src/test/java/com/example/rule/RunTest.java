@@ -1,6 +1,7 @@
 package com.example.rule;
 
-import org.junit.jupiter.api.Assertions;
+import com.example.rule.controller.RuleController;
+import com.example.rule.service.RuleService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

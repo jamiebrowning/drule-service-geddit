@@ -1,14 +1,15 @@
 package com.example.rule;
 
-import com.example.rule.handler.ConsumerRuleHandler;
-import com.example.rule.handler.PriceRuleHandler;
+import com.example.rule.domain.external.Product;
+import com.example.rule.domain.RuleData;
+import com.example.rule.handler.impl.ConsumerRuleHandler;
+import com.example.rule.handler.impl.PriceRuleHandler;
+import com.example.rule.strategy.impl.RuleStrategy;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-
-import java.util.function.Consumer;
 
 import static org.junit.jupiter.api.Assertions.*;
 

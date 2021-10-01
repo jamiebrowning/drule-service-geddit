@@ -1,4 +1,4 @@
-package com.example.rule;
+package com.example.rule.domain.external;
 
 import lombok.Builder;
 import lombok.Data;

@@ -1,8 +1,7 @@
 package com.example.rule.handler;
 
-import com.example.rule.Product;
-import com.example.rule.RuleData;
-import com.example.rule.RuleService;
+import com.example.rule.domain.external.Product;
+import com.example.rule.handler.impl.PriceRuleHandler;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

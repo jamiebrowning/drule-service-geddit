@@ -1,5 +1,7 @@
 package com.example.rule;
 
+import com.example.rule.domain.external.Product;
+import com.example.rule.domain.RuleData;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.json.JsonTest;
@@ -24,9 +26,9 @@ public class RuleDataProductJsonTests {
 
     @Test
     void deserialize() throws Exception {
-        String content = "{\"context\":{\"@class\":\"com.example.rule.Product\",\"name\":\"test\",\"price\":10}}";
+        String content = "{\"context\":{\"@class\":\"com.example.rule.domain.external.Product\",\"name\":\"test\",\"price\":10}}";
         assertThat(json.parse(content)).isEqualTo(
-                new RuleData<>(new Product.ProductBuilder().name("test").price(10).build()));
+                new RuleData<>(Product.builder().name("test").price(10).build()));
         assertThat(json.parseObject(content).getContext().getName()).isEqualTo("test");
         assertThat(json.parseObject(content).getContext().getPrice()).isEqualTo(10);
     }

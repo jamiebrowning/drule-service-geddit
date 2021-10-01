@@ -1,4 +1,4 @@
-import com.example.rule.Product
+import com.example.rule.domain.external.Product
 
 rule "test price"
     when

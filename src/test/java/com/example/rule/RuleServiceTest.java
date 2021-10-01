@@ -1,29 +1,41 @@
 package com.example.rule;
 
+import com.example.rule.domain.RuleData;
+import com.example.rule.domain.external.Product;
+import com.example.rule.handler.RuleHandler;
+import com.example.rule.service.RuleService;
+import com.example.rule.strategy.impl.RuleStrategy;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.TestPropertySource;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.any;
+import java.util.Optional;
 
-// TODO - test the handler instead
-@SpringBootTest
-@TestPropertySource(locations = {"classpath:application.properties"})
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.when;
+
+@ExtendWith(MockitoExtension.class)
 class RuleServiceTest {
 
-    @Autowired
+    @Mock
+    private RuleStrategy ruleStrategy;
+
+    @Mock
+    private RuleHandler ruleHandler;
+
+    @InjectMocks
     private RuleService ruleService;
 
     @Test
     void fireAllRules_WhenNameNotTest_ShouldNotChangePrice() {
         final int expectedPrice = 10;
-        final Product product = new Product.ProductBuilder().price(expectedPrice).build();
+        final Product product = Product.builder().price(expectedPrice).build();
         final RuleData<Product> productRuleData = new RuleData<>(product);
+
+        when(ruleStrategy.findHandler(productRuleData)).thenReturn(Optional.of(ruleHandler));
+        when(ruleHandler.fireAllRules(product)).thenReturn(product);
 
         final RuleData<Product> actual = ruleService.fireAllRules(productRuleData);
 
@@ -32,9 +44,14 @@ class RuleServiceTest {
 
     @Test
     void fireAllRules_WhenNameIsTest_ShouldChangePrice() {
-        final int expectedPrice = 20;
-        final Product product = new Product.ProductBuilder().name("test").build();
+        final Product product = Product.builder().name("test").build();
         final RuleData<Product> productRuleData = new RuleData<>(product);
+
+        final int expectedPrice = 20;
+        final Product expectedProduct = Product.builder().name("test").price(expectedPrice).build();
+
+        when(ruleStrategy.findHandler(productRuleData)).thenReturn(Optional.of(ruleHandler));
+        when(ruleHandler.fireAllRules(product)).thenReturn(expectedProduct);
 
         final RuleData<Product> actual = ruleService.fireAllRules(productRuleData);
 

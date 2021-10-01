@@ -1,4 +1,4 @@
-package com.example.rule;
+package com.example.rule.configuration;
 
 import org.kie.api.KieServices;
 import org.kie.api.runtime.KieContainer;

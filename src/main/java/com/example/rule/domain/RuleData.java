@@ -1,4 +1,4 @@
-package com.example.rule;
+package com.example.rule.domain;
 
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import lombok.Data;

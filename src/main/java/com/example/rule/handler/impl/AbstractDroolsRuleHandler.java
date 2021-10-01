@@ -1,9 +1,10 @@
-package com.example.rule.handler;
+package com.example.rule.handler.impl;
 
+import com.example.rule.handler.RuleHandler;
 import org.kie.api.runtime.KieContainer;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public abstract class AbstractDroolsRuleHandler implements RuleHandler{
+public abstract class AbstractDroolsRuleHandler implements RuleHandler {
 
     @Autowired
     KieContainer kContainer;
