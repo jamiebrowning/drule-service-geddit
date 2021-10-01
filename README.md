@@ -14,7 +14,7 @@ Build and run the code
 ```shell
 cd sprools-service
 mvn clean install
-java -jar target sprools-service-${version}.jar
+java -jar target/sprools-service-${version}.jar
 ```
 
 ## Usage
