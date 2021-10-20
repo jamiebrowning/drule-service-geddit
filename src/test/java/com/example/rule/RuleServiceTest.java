@@ -39,11 +39,13 @@ class RuleServiceTest {
 
     @Test
     void fireAllRules_WhenNameIsTest_ShouldChangePrice() {
+        final Product product = Product.builder().build();
+        final RuleData<Product> productRuleData = new RuleData<>(product);
 
-        when(ruleStrategy.findHandler(any())).thenReturn(Optional.of(ruleHandler));
-        when(ruleHandler.fireAllRules(any())).thenReturn(Product.builder().build());
+        when(ruleStrategy.findHandler(productRuleData)).thenReturn(Optional.of(ruleHandler));
+        when(ruleHandler.fireAllRules(product)).thenReturn(product);
 
-        final RuleData<Product> data = ruleService.fireAllRules(new RuleData<>(Product.builder().build()));
+        final RuleData<Product> data = ruleService.fireAllRules(productRuleData);
 
         assertNotNull(data);
 
