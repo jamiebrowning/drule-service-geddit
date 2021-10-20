@@ -49,8 +49,8 @@ class RuleServiceTest {
 
         assertNotNull(data);
 
-        verify(ruleStrategy, times(1)).findHandler(any());
-        verify(ruleHandler, times(1)).fireAllRules(any());
+        verify(ruleStrategy, times(1)).findHandler(productRuleData);
+        verify(ruleHandler, times(1)).fireAllRules(product);
     }
 
 }
